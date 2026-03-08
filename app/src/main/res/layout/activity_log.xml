@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark">
+
+    <!-- ── Control Panel ─────────────────────────────────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/card_dark"
+        android:paddingHorizontal="12dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="8dp">
+
+        <!-- Row 1: Mode selector + stats -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="מצב:"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:layout_marginEnd="8dp"/>
+
+            <Spinner
+                android:id="@+id/spinnerMode"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/accent_blue"
+                android:popupBackground="@color/card_dark"/>
+
+        </LinearLayout>
+
+        <!-- Row 2: Stats -->
+        <TextView
+            android:id="@+id/tvLogStats"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0 entries"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Row 3: Level filter buttons -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnFilterAll"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="הכל"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="6dp"
+                    app:strokeColor="@color/text_secondary"
+                    app:cornerRadius="16dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnFilterError"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="שגיאות"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="6dp"
+                    app:strokeColor="@color/accent_red"
+                    android:textColor="@color/accent_red"
+                    app:cornerRadius="16dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnFilterWarn"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="אזהרות"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="6dp"
+                    app:strokeColor="@color/fuel_warning"
+                    android:textColor="@color/fuel_warning"
+                    app:cornerRadius="16dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnFilterSuccess"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="הצלחות"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="6dp"
+                    app:strokeColor="@color/accent_green"
+                    android:textColor="@color/accent_green"
+                    app:cornerRadius="16dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnFilterComm"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="תקשורת"
+                    android:textSize="11sp"
+                    app:strokeColor="@color/accent_blue"
+                    android:textColor="@color/accent_blue"
+                    app:cornerRadius="16dp"/>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <!-- Row 4: Action buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchAutoScroll"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="גלול"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"/>
+
+            <!-- Share → Android Share Sheet (email / WhatsApp / Drive…) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShare"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="📤 שתף"
+                android:textSize="12sp"
+                app:backgroundTint="@color/accent_blue"
+                app:cornerRadius="8dp"
+                android:layout_marginEnd="6dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCopyLog"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="העתק"
+                android:textSize="12sp"
+                app:strokeColor="@color/text_secondary"
+                android:layout_marginEnd="6dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnClearLog"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text="נקה"
+                android:textSize="12sp"
+                app:strokeColor="@color/accent_red"
+                android:textColor="@color/accent_red"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ── Log List ──────────────────────────────────────────── -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLog"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="4dp"
+        android:clipToPadding="false"
+        android:fontFamily="monospace"/>
+
+</LinearLayout>

@@ -1,0 +1,2 @@
+rootProject.name = "OBD2Monitor"
+include ':app'

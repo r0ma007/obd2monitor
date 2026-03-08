@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_dark">
+
+    <!-- Top Controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/card_dark">
+
+        <TextView
+            android:id="@+id/tvScanStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="לחץ 'סרוק PIDs' לגלות מה הרכב תומך"
+            android:textColor="@color/text_secondary"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="0"
+            android:visibility="gone"
+            app:indicatorColor="@color/accent_blue"
+            app:trackColor="@color/track_color"
+            app:trackCornerRadius="4dp"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvSupportedCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/accent_green"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Buttons row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStartScan"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="סרוק PIDs"
+                app:backgroundTint="@color/accent_blue"
+                app:cornerRadius="8dp"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnOpenLog"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="פתח לוג"
+                app:backgroundTint="@color/toolbar_color"
+                app:cornerRadius="8dp"
+                app:strokeColor="@color/accent_blue"
+                app:strokeWidth="1dp"/>
+        </LinearLayout>
+
+        <!-- Show all toggle -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="הצג גם PIDs שלא נתמכים"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"/>
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/switchShowAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- PID Results List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvPidResults"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false"/>
+
+</LinearLayout>

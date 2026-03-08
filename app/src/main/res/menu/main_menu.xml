@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_diagnostic"
+        android:title="🔍 סרוק PIDs"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/action_log"
+        android:title="📋 לוג"
+        android:icon="@android:drawable/ic_menu_info_details"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="⚙️ הגדרות MQTT"
+        android:icon="@android:drawable/ic_menu_preferences"
+        app:showAsAction="never"/>
+
+</menu>
